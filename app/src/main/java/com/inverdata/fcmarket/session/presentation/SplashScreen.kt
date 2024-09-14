@@ -14,24 +14,35 @@ import cafe.adriel.voyager.koin.koinScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import com.inverdata.fcmarket.R
-import com.inverdata.fcmarket.home.HomeScreen
+import com.inverdata.fcmarket.home.navigation.screen.HomeScreen
 import com.inverdata.fcmarket.login.presentation.LoginScreen
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.collect
 
-class SplashScreen: Screen{
+class SplashScreen : Screen {
     @Composable
     override fun Content() {
         val viewModel = koinScreenModel<SplashViewModel>()
         val navigator = LocalNavigator.currentOrThrow
 
+        LaunchedEffect(viewModel.sharedFlow) {
+            viewModel.sharedFlow.collect { screen ->
+                when (screen) {
+                    SplashDestination.Home -> {
+                        navigator.replaceAll(HomeScreen())
+                    }
+
+                    SplashDestination.Login -> {
+                        navigator.replaceAll(LoginScreen())
+                    }
+                }
+            }
+        }
 
         Box(
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
         ) {
             Image(
-                painter = painterResource(R.drawable.logo_fc) ,
+                painter = painterResource(R.drawable.logo_fc),
                 contentDescription = stringResource(R.string.app_name)
             )
         }

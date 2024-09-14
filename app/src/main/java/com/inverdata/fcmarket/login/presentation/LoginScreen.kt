@@ -8,7 +8,7 @@ import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.koin.koinScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
-import com.inverdata.fcmarket.home.HomeScreen
+import com.inverdata.fcmarket.home.navigation.screen.HomeScreen
 import com.inverdata.fcmarket.login.presentation.components.LoginComponent
 
 class LoginScreen: Screen {

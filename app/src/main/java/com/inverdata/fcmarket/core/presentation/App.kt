@@ -21,7 +21,7 @@ fun App() {
                 modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
             ) {
-                Navigator(screen = SplashScreen) { navigator ->
+                Navigator(screen = SplashScreen()) { navigator ->
                     SlideTransition(navigator)
                 }
             }
