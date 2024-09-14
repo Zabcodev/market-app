@@ -16,7 +16,7 @@ object LoginValidator {
 
         if (login.password.isBlank()) {
             result = result.copy(
-                passwordError = "El campo de contraseña no puede estar vacío."
+                passwordError = "El campo no puede estar vacío."
             )
         }
 

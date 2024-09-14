@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">FCMarket</string>
+    <string name="label_email">Correo electrónico</string>
+    <string name="placeholder_email">Tú correo electrónico</string>
+    <string name="label_password">Contraseña</string>
+    <string name="placeholder_password">Tú contraseña</string>
+    <string name="ic_email">Email Icon</string>
+    <string name="ic_password">Password Icon</string>
+    <string name="login_text">Iniciar</string>
 </resources>
