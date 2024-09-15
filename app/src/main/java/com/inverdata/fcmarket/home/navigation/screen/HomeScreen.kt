@@ -2,9 +2,12 @@ package com.inverdata.fcmarket.home.navigation.screen
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.tab.CurrentTab
@@ -15,6 +18,7 @@ import com.inverdata.fcmarket.core.presentation.DefaultLayout
 import com.inverdata.fcmarket.home.components.TabNavigationItem
 import com.inverdata.fcmarket.home.navigation.tabs.HomeTabs
 
+@OptIn(ExperimentalMaterial3Api::class)
 class HomeScreen : Screen {
     @Composable
     override fun Content() {
@@ -31,6 +35,13 @@ class HomeScreen : Screen {
                             TabNavigationItem(tab)
                         }
                     }
+                },
+                topBar = {
+                    TopAppBar(
+                        title = {
+                            Text(it.current.options.title)
+                        }
+                    )
                 },
                 floatingActionButton = {
                     if (it.current.options.title == "Dashboard") {

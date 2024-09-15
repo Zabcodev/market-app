@@ -88,6 +88,15 @@ dependencies {
     implementation(libs.sqldelight.android.driver)
     implementation(libs.sqldelight.coroutines)
 
+    // Paging
+    implementation(libs.paging.compose)
+
+    // Coil
+    implementation(libs.coil.compose)
+
+    // Constraint Layout
+    implementation(libs.constraint.layout.compose)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

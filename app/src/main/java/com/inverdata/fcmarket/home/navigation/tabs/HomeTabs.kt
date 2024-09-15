@@ -8,7 +8,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import cafe.adriel.voyager.navigator.tab.Tab
 import com.inverdata.fcmarket.configuration.presentation.ConfigurationTab
 import com.inverdata.fcmarket.dashboard.presentation.DashboardTab
-import com.inverdata.fcmarket.product.presentation.ProductTab
+import com.inverdata.fcmarket.product.presentation.tab.ProductTab
 
 sealed class HomeTabs(
     val tab: Tab,
