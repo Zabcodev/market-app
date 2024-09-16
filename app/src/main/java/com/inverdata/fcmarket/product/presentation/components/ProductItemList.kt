@@ -25,25 +25,24 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.capitalize
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
+import androidx.constraintlayout.compose.Dimension
 import com.inverdata.fcmarket.R
 import com.inverdata.fcmarket.stock.domain.model.Product
-import java.util.Locale
 
 @Composable
 fun ProductItemList(
+    product: Product,
     modifier: Modifier = Modifier
 ) {
     Card(
         modifier = modifier
-            .width(170.dp)
-            .height(235.dp)
+            .fillMaxWidth()
+            .height(150.dp)
             .border(
                 width = 1.dp,
                 color = Color.Black,
@@ -53,91 +52,130 @@ fun ProductItemList(
             containerColor = MaterialTheme.colorScheme.surface
         )
     ) {
-        /*Column(
+        ConstraintLayout(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(vertical = 16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Box(
-                modifier = Modifier.fillMaxWidth(),
-                contentAlignment = Alignment.Center
-            ) {
-                Image(
-                    painter = painterResource(R.drawable.logo_fc),
-                    contentDescription = stringResource(R.string.app_name),
-                )
-            }
-            Spacer(modifier = Modifier.height(16.dp))
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 8.dp),
-            ) {
-                Text(
-                    text = "product.description",
-                    fontSize = 10.sp,
-                    fontWeight = FontWeight.SemiBold,
-                    textAlign = TextAlign.Center
-                )
-                Spacer(modifier = Modifier.height(6.dp))
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.Start
-                ) {
-                    Text(
-                        text = "Almacen: ",
-                        fontSize = 12.sp,
-                        fontWeight = FontWeight.W500
-                    )
-                    Text(
-                        text = "product.salesQuantity",
-                        fontSize = 10.sp
-                    )
-                }
-                Spacer(modifier = Modifier.height(6.dp))
-                Box(
-                    modifier = Modifier
-                        .clip(RoundedCornerShape(8.dp))
-                        .background(MaterialTheme.colorScheme.primary)
-                        .padding(8.dp),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Text(
-                        text = "1.00$",
-                        fontSize = 10.sp,
-                        fontWeight = FontWeight.SemiBold,
-                        color = MaterialTheme.colorScheme.onPrimary
-                    )
-                }
-            }
-        }*/
+            val (image, description, quantity, price) = createRefs()
 
-        ConstraintLayout(
-            modifier = Modifier.fillMaxSize()
-        ) {
-            val (image, description, stock, price) = createRefs()
             Box(
                 modifier = Modifier
-                    .fillMaxWidth()
+                    .width(110.dp)
+                    .height(100.dp)
                     .constrainAs(image) {
-                        top.linkTo(parent.top, margin = 12.dp)
+                        top.linkTo(parent.top)
                         start.linkTo(parent.start)
-                        end.linkTo(parent.end)
+                        bottom.linkTo(parent.bottom)
                     },
                 contentAlignment = Alignment.Center
             ) {
                 Image(
-                    painter = painterResource(R.drawable.logo_fc),
-                    contentDescription = stringResource(R.string.app_name)
+                    painter = painterResource(R.drawable.no_image),
+                    contentDescription = stringResource(R.string.app_name),
                 )
             }
+
+            Text(
+                modifier = Modifier.constrainAs(description) {
+                    start.linkTo(image.end)
+                    top.linkTo(parent.top, margin = 12.dp)
+                    end.linkTo(parent.end)
+                    width = Dimension.fillToConstraints
+                    height = Dimension.wrapContent
+                },
+                text = product.description,
+                fontSize = 14.sp,
+                fontWeight = FontWeight.W600,
+                maxLines = 2
+            )
+
+            Text(
+                modifier = Modifier.constrainAs(quantity) {
+                    start.linkTo(image.end)
+                    top.linkTo(description.bottom, margin = 4.dp)
+                },
+                text = "Disponible: ${product.salesQuantity} unidades.",
+                fontSize = 13.sp,
+                fontWeight = FontWeight.W500
+            )
+
+            Box(
+                modifier = Modifier
+                    .clip(RoundedCornerShape(8.dp))
+                    .background(Color.Blue)
+                    .padding(8.dp)
+                    .constrainAs(price) {
+                        start.linkTo(image.end)
+                        top.linkTo(quantity.bottom, margin = 8.dp)
+                    },
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = "${product.productPriceOne}$",
+                    fontSize = 12.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = Color.White
+                )
+            }
+
+
         }
+        /*Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 6.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center,
+        ) {
+            Box(
+                modifier = Modifier
+                    .width(140.dp)
+                    .height(100.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    painter = painterResource(R.drawable.no_image),
+                    contentDescription = stringResource(R.string.app_name),
+                )
+            }
+
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(end = 16.dp)
+            ) {
+                Text(
+                    text = product.description,
+                    fontSize = 14.sp,
+                    fontWeight = FontWeight.W600
+                )
+                Spacer(modifier = Modifier.height(2.dp))
+                Text(
+                    text = "Disponible: ${product.salesQuantity} unidades.",
+                    fontSize = 12.sp,
+                    fontWeight = FontWeight.W500
+                )
+                Spacer(modifier = Modifier.height(6.dp))
+                Box(
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(8.dp))
+                        .background(Color.Blue)
+                        .padding(8.dp)
+                ) {
+                    Text(
+                        text = "${product.productPriceOne}$",
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color.White
+                    )
+                }
+            }
+        }*/
     }
 }
 
-@Preview(showBackground = true)
+/*@Preview(showBackground = true)
 @Composable
 fun ProductItemListPreview() {
     ProductItemList()
-}
+}*/
