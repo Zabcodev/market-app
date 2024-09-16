@@ -7,4 +7,13 @@
     <string name="ic_email">Email Icon</string>
     <string name="ic_password">Password Icon</string>
     <string name="login_text">Iniciar</string>
+    <string name="customer_data">Datos del cliente:</string>
+    <string name="customer_identification">Identificacion</string>
+    <string name="customer_identification_placeholder">Identificacion del cliente</string>
+    <string name="customer_name">Nombre del cliente</string>
+    <string name="customer_name_placeholder">Ingresa el nombre del cliente</string>
+    <string name="customer_lastname">Apellido del cliente</string>
+    <string name="customer_lastname_placeholder">Ingresa el apellido del cliente</string>
+    <string name="select_products">Seleccionar productos</string>
+
 </resources>
