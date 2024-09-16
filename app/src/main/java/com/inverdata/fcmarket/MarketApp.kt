@@ -2,6 +2,7 @@ package com.inverdata.fcmarket
 
 import android.app.Application
 import com.inverdata.fcmarket.core.di.appModule
+import com.inverdata.fcmarket.customer.di.customerModule
 import com.inverdata.fcmarket.login.di.loginModule
 import com.inverdata.fcmarket.product.di.productModule
 import com.inverdata.fcmarket.session.di.sessionModule
@@ -16,7 +17,7 @@ class MarketApp : Application() {
         startKoin {
             androidContext(this@MarketApp)
             androidLogger()
-            modules(appModule + loginModule + sessionModule + stockModule + productModule)
+            modules(appModule + loginModule + sessionModule + stockModule + productModule + customerModule)
         }
     }
 }

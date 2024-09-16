@@ -10,11 +10,14 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import cafe.adriel.voyager.core.screen.Screen
+import cafe.adriel.voyager.navigator.LocalNavigator
+import cafe.adriel.voyager.navigator.currentOrThrow
 import cafe.adriel.voyager.navigator.tab.CurrentTab
 import cafe.adriel.voyager.navigator.tab.TabDisposable
 import cafe.adriel.voyager.navigator.tab.TabNavigator
 import com.inverdata.fcmarket.core.commom.Constants.homeTabs
 import com.inverdata.fcmarket.core.presentation.DefaultLayout
+import com.inverdata.fcmarket.customer.presentation.CustomerScreen
 import com.inverdata.fcmarket.home.components.TabNavigationItem
 import com.inverdata.fcmarket.home.navigation.tabs.HomeTabs
 
@@ -28,6 +31,7 @@ class HomeScreen : Screen {
                 TabDisposable(navigator = tabNavigator, tabs = homeTabs)
             }
         ) {
+            val navigator = LocalNavigator.currentOrThrow
             DefaultLayout(
                 bottomBar = {
                     NavigationBar {
@@ -46,7 +50,9 @@ class HomeScreen : Screen {
                 floatingActionButton = {
                     if (it.current.options.title == "Dashboard") {
                         FloatingActionButton(
-                            onClick = {}
+                            onClick = {
+                                navigator.parent?.push(CustomerScreen())
+                            }
                         ) {
                             Icon(
                                 imageVector = Icons.Filled.Add,
