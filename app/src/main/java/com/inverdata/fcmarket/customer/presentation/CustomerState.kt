@@ -8,4 +8,11 @@ data class CustomerState(
     val selectedCustomer: Customer? = null,
     val showDialog: Boolean = false,
     val messageError: String? = null,
+    val nameError: String? = null,
+    val lastNameError: String? = null,
+    val addressError: String? = null,
+    val phoneNumberError: String? = null,
+    val emailError: String? = null,
+    val isAddCustomerSheetOpen: Boolean = false,
+    val allValidationCheck: Boolean = false
 )

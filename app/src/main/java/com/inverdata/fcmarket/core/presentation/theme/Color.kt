@@ -1,4 +1,4 @@
-package com.inverdata.fcmarket.ui.theme
+package com.inverdata.fcmarket.core.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 

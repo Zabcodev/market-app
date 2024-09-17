@@ -12,7 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.inverdata.fcmarket.core.presentation.App
-import com.inverdata.fcmarket.ui.theme.FCMarketTheme
+import com.inverdata.fcmarket.core.presentation.theme.FCMarketTheme
 import org.koin.compose.KoinContext
 
 class MainActivity : ComponentActivity() {

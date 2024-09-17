@@ -38,7 +38,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import com.inverdata.fcmarket.R
-import com.inverdata.fcmarket.core.presentation.DefaultLayout
+import com.inverdata.fcmarket.core.presentation.components.DefaultLayout
 import com.inverdata.fcmarket.login.domain.model.Login
 import com.inverdata.fcmarket.login.presentation.LoginEvent
 import com.inverdata.fcmarket.login.presentation.LoginState

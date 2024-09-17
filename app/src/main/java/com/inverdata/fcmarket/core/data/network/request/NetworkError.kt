@@ -6,7 +6,7 @@ enum class NetworkError(val message: ErrorRemote): Error {
     REQUEST_TIMEOUT(message = ErrorRemote()),
     BAD_REQUEST(message = ErrorRemote(error = "Contraseña Invalida")),
     UNAUTHORIZED(message = ErrorRemote()),
-    NOT_FOUND(message = ErrorRemote("No existe la persona")),
+    NOT_FOUND(message = ErrorRemote("Cliente no existente")),
     CONFLICT(message = ErrorRemote()),
     NO_INTERNET(message = ErrorRemote()),
     PAYLOAD_TO_LARGE(message = ErrorRemote()),
