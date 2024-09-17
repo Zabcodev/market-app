@@ -14,6 +14,17 @@
     <string name="customer_name_placeholder">Ingresa el nombre del cliente</string>
     <string name="customer_lastname">Apellido del cliente</string>
     <string name="customer_lastname_placeholder">Ingresa el apellido del cliente</string>
+    <string name="customer_address">Dirección</string>
+    <string name="customer_address_placeholder">Ingresa la direccion del cliente</string>
+    <string name="customer_phone_number">Número de telefono</string>
+    <string name="customer_phone_number_placeholder">Ingresa el telefono del cliente</string>
+    <string name="customer_email">Correo electrónico</string>
+    <string name="customer_email_placeholder">Ingresa el correo del cliente</string>
+    <string name="customer_type_identification">Tipo de identificación</string>
     <string name="select_products">Seleccionar productos</string>
+    <string name="select_customer">Seleccionar cliente</string>
+    <string name="register_customer">¿Desea registrar al cliente?</string>
+    <string name="register_customer_text">Registrar cliente</string>
+    <string name="register_text">Registrar</string>
 
 </resources>

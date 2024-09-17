@@ -16,7 +16,7 @@ import cafe.adriel.voyager.navigator.tab.CurrentTab
 import cafe.adriel.voyager.navigator.tab.TabDisposable
 import cafe.adriel.voyager.navigator.tab.TabNavigator
 import com.inverdata.fcmarket.core.commom.Constants.homeTabs
-import com.inverdata.fcmarket.core.presentation.DefaultLayout
+import com.inverdata.fcmarket.core.presentation.components.DefaultLayout
 import com.inverdata.fcmarket.customer.presentation.CustomerScreen
 import com.inverdata.fcmarket.home.components.TabNavigationItem
 import com.inverdata.fcmarket.home.navigation.tabs.HomeTabs
