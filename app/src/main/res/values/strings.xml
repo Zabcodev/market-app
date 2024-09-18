@@ -26,5 +26,6 @@
     <string name="register_customer">¿Desea registrar al cliente?</string>
     <string name="register_customer_text">Registrar cliente</string>
     <string name="register_text">Registrar</string>
+    <string name="log_out_text">Cerrar sesión</string>
 
 </resources>

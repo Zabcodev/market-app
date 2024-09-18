@@ -3,7 +3,6 @@ package com.inverdata.fcmarket.login.presentation
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import androidx.lifecycle.viewModelScope
 import cafe.adriel.voyager.core.model.ScreenModel
 import cafe.adriel.voyager.core.model.screenModelScope
 import com.inverdata.fcmarket.core.data.network.request.ApiRequest
@@ -91,7 +90,9 @@ class LoginViewModel(
                                                 isLoading = false
                                             )
                                         }
-                                        repository.insertSession(response.data.toSession())
+                                        repository.insertSession(
+                                            response.data.copy(userEmail = login.email).toSession()
+                                        )
                                         _sharedFlow.emit(ScreenEvent.NavigateToHome)
                                         // println(response.data.toString())
                                     }

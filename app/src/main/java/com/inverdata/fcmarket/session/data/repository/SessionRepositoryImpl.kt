@@ -11,4 +11,12 @@ class SessionRepositoryImpl(
     override suspend fun getSessions(): Flow<List<SessionLocal>> {
         return localSource.getSessions()
     }
+
+    override suspend fun getUserEmail(): String? {
+        return localSource.getUserEmail()
+    }
+
+    override suspend fun deleteSession() {
+        localSource.deleteSession()
+    }
 }

@@ -23,5 +23,6 @@ fun User.toSession(): UserSession = UserSession(
     id = null,
     access = access,
     refresh = refresh,
-    userId = user.toLong()
+    userId = user.toLong(),
+    userEmail = userEmail
 )

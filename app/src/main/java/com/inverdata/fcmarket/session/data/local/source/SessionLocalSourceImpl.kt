@@ -38,10 +38,20 @@ class SessionLocalSourceImpl(
                     id = session.id,
                     access = session.access,
                     refresh = session.refresh,
-                    userId = session.userId
+                    userId = session.userId,
+                    userEmail = session.userEmail
                 )
             }
         }
+    }
+
+    override suspend fun getUserEmail(): String? {
+        return scope.async {
+            dbHelper.withDatabase { database ->
+                database.sessionQueries.getUserEmail()
+                    .executeAsOneOrNull()
+            }
+        }.await()
     }
 
     override suspend fun deleteSession() {

@@ -4,5 +4,6 @@ data class UserSession(
     val id: Long?,
     val access: String,
     val refresh: String,
-    val userId: Long
+    val userId: Long,
+    val userEmail: String
 )

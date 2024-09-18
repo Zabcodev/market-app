@@ -8,12 +8,14 @@ fun Session.toLocal(): SessionLocal = SessionLocal(
     id = id,
     access = access,
     refresh = refresh,
-    userId = userId
+    userId = userId,
+    userEmail = userEmail
 )
 
 fun UserSession.toDatabase(): SessionLocal = SessionLocal(
     id = id,
     access = access,
     refresh = refresh,
-    userId = userId
+    userId = userId,
+    userEmail = userEmail,
 )

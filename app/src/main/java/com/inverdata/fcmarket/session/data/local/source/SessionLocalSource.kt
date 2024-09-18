@@ -8,6 +8,7 @@ interface SessionLocalSource {
 
     suspend fun getSessions(): Flow<List<SessionLocal>>
     suspend fun insertSession(session: SessionLocal)
+    suspend fun getUserEmail(): String?
     suspend fun deleteSession()
 
 }

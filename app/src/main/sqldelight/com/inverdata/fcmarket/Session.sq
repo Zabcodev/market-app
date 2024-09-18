@@ -2,15 +2,19 @@ CREATE TABLE Session (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     access TEXT NOT NULL DEFAULT "",
     refresh TEXT NOT NULL DEFAULT "",
-    userId INTEGER NOT NULL DEFAULT 0
+    userId INTEGER NOT NULL DEFAULT 0,
+    userEmail TEXT NOT NULL DEFAULT ""
 );
 
 getSession:
 SELECT * FROM Session;
 
 insertSession:
-INSERT OR REPLACE INTO Session(id, access, refresh, userId) VALUES
-(?, ?, ?, ?);
+INSERT OR REPLACE INTO Session(id, access, refresh, userId, userEmail) VALUES
+(?, ?, ?, ?, ?);
+
+getUserEmail:
+SELECT userEmail FROM Session;
 
 deleteSession:
 DELETE FROM Session;
